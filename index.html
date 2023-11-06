@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>My CV</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+        }
+
+        .cv-container {
+            display: flex;
+        }
+
+        .personal-info {
+            flex: 1;
+            padding: 20px;
+            background-color: #f0f0f0;
+        }
+
+        .work-experience {
+            flex: 2;
+            padding: 20px;
+            display: none;
+        }
+
+        .personal-info img {
+            max-width: 100%;
+            border: 2px solid #333;
+            border-radius: 50%;
+        }
+
+        .personal-info p {
+            margin: 10px 0;
+        }
+
+        .toggle-button {
+            display: block;
+            margin-top: 10px;
+            cursor: pointer;
+        }
+
+        .work-experience-button {
+            max-width: 32px;
+            max-height: 32px;
+            cursor: pointer;
+            border: 4px hidden !important;
+            border-radius: 0 !important;
+
+}
+
+        .work-experience-button:hover {
+            filter: brightness(110%);
+        }
+
+        .work-experience h2 {
+            font-size: 30px;
+        }
+
+        .work-experience .job {
+            margin-bottom: 30px;
+        }
+
+        .job-title {
+            font-weight: bold;
+        }
+
+        .job-dates {
+            font-style: italic;
+        }
+    </style>
+</head>
+<body>
+    <div class="cv-container">
+        <div class="personal-info">
+            <img src="your-photo.jpg" alt="Your Photo">
+            <p><strong>Phone Number:</strong> (123) 456-7890</p>
+            <p><strong>Email:</strong> your@email.com</p>
+            <p><strong>Location:</strong> Your City, Your Country</p>
+            <a class="toggle-button" onclick="toggleWorkExperience()">
+                <img class="work-experience-button" src="'work_experience_icon.svg" alt="Work Experience">
+            </a>
+        </div>
+        <div class="work-experience">
+            <h2>Work Experience</h2>
+            <div class="job">
+                <p class="job-title">Job Title 1</p>
+                <p class="job-dates">January 20XX - December 20XX</p>
+                <p>Description of your job responsibilities and achievements.</p>
+            </div>
+            <div class="job">
+                <p class="job-title">Job Title 2</p>
+                <p class="job-dates">May 20XX - August 20XX</p>
+                <p>Description of your job responsibilities and achievements.</p>
+            </div>
+            <!-- Add more job entries as needed -->
+        </div>
+    </div>
+
+    <script>
+        function toggleWorkExperience() {
+            const workExperience = document.querySelector('.work-experience');
+            if (workExperience.style.display === 'none' || workExperience.style.display === '') {
+                workExperience.style.display = 'block';
+                smoothScrollTo(workExperience);
+            } else {
+                workExperience.style.display = 'none';
+            }
+        }
+
+        function smoothScrollTo(element) {
+            const yOffset = element.getBoundingClientRect().top;
+            window.scrollBy({
+                top: yOffset,
+                behavior: 'smooth'
+            });
+        }
+    </script>
+</body>
+</html>
